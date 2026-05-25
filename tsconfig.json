@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "types": ["./globals.d.ts"]
   },
   "include": [
     "next-env.d.ts",
