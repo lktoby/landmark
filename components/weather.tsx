@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useFormatter, useNow } from 'next-intl';
 
 export async function fetchWeather(city: string): Promise<any> {
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
@@ -13,13 +14,15 @@ export async function fetchWeather(city: string): Promise<any> {
 
     const data = await response.json();
     return data;
-    }
+} 
 
-    interface WeatherProps {
-    city: string;
-    }
+interface WeatherProps {
+city: string;
+}
 
-    const Weather: React.FC<WeatherProps> = ({ city }) => {
+const Weather: React.FC<WeatherProps> = ({ city }) => {
+    const format = useFormatter();
+    const now = useNow();
     const [weather, setWeather] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -40,7 +43,7 @@ export async function fetchWeather(city: string): Promise<any> {
               <Image src={icon_url} alt={weather.name} width={128} height={128} />
             </figure>
         <div className="card-body">
-              <h1 className="card-title">{Math.round(weather.main.temp)}°C in {city}</h1>
+              <h1 className="card-title">{Math.round(weather.main.temp)}°C in {city} at {format.dateTime(now, {hour: 'numeric', minute: 'numeric', hour12: false})}</h1>
             <div className="card-actions">
                 <p>{weather.weather[0].description}. your mom says you should wear a jacket.</p>
                 {/* TODO: put some kinda ai here to generate weather advice from an asian mom (?) */}

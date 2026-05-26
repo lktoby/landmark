@@ -14,6 +14,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <div className="flex items-end justify-end m-5">
         <i className="bi bi-gear hover:text-base-content hover:opacity-80 text-2xl"></i>
+        {/* TODO: add settings popup menu */}
       </div>
       <div className="flex flex-col items-center justify-center gap-2">
         <Weather city="Tokyo"></Weather>
@@ -29,6 +30,7 @@ export default function Home() {
                   Bookmarks
                 </span>
                 <i className="bi bi-pencil-square hover:text-base-content hover:opacity-80 text-xl"></i>
+                {/* TODO: edit bookmark popup */}
               </div>
             </div>
             <div className="pr-65">
@@ -52,6 +54,7 @@ export default function Home() {
               <TodoItem></TodoItem>
               <TodoItem></TodoItem>
               <TodoItem></TodoItem>
+              {/* TODO: add/edit todo popup menu */}
               <ul className="list bg-base-100 rounded-box shadow-md">
                 <li className="rounded-box hover:bg-base-200 focus:outline-1">
                   <div>
