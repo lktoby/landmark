@@ -1,6 +1,6 @@
 "use client"
 
-function Bookmark({icon, title}) {
+function Bookmark({icon, title}: {icon: string, title: string}) {
     const icon_ref = `bi bi-${icon}`;
     return <li className="list-row hover:bg-base-200">
                 <div>
