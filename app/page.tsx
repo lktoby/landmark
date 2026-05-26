@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import { useNow, useFormatter } from "next-intl";
 import dynamic from "next/dynamic";
+import Weather from "@/components/weather";
 
 const Calendar = dynamic(()=>import("@/components/calendar"), {ssr:false});
 
@@ -11,27 +11,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-2">
       <div className="flex flex-col w-full max-w-3xl items-center justify-between bg-white dark:bg-black">
-        <div className="card lg:card-side bg-base-100 shadow-sm">
-          <figure>
-            <Image
-              src="https://placehold.co/200"
-              alt="weather image"
-              width={200}
-              height={200}
-              unoptimized
-            />
-          </figure>
-          <div className="card-body">
-            <h1 className="card-title">0°C in Hong Kong</h1>
-            <div className="card-actions">
-              <p>insert weather description. your mom says you should wear a jacket.</p>
-              {/* TODO: put some kinda ai here to generate weather advice from an asian mom (?) */}
-            </div>
-            <div className="flex justify-end">
-              <button className="btn btn-primary">more</button>
-            </div>
-          </div>
-        </div>
+        <Weather city="Tokyo"></Weather>
       </div>
       <div>
         <h2 className="text-2xl italic font-medium text-center">Fun fact of the day: do you know that pandas love to sleep?</h2>
