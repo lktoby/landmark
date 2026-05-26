@@ -9,7 +9,7 @@ export default function Home() {
   const now = useNow();
   const format = useFormatter();
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center ">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-2">
       <div className="flex flex-col w-full max-w-3xl items-center justify-between bg-white dark:bg-black">
         <div className="card lg:card-side bg-base-100 shadow-sm">
           <figure>
@@ -25,7 +25,7 @@ export default function Home() {
             <h1 className="card-title">0°C in Hong Kong</h1>
             <div className="card-actions">
               <p>insert weather description. your mom says you should wear a jacket.</p>
-              {/* maybe put some kinda ai here to generate weather advice from an asian mom (?) */}
+              {/* TODO: put some kinda ai here to generate weather advice from an asian mom (?) */}
             </div>
             <div className="flex justify-end">
               <button className="btn btn-primary">more</button>
@@ -33,28 +33,33 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+      <div>
+        <h2 className="text-2xl italic font-medium text-center">Fun fact of the day: do you know that pandas love to sleep?</h2>
+      </div>
+      {/* TODO: convert this stack of code into its own components */}
       {/* bookmarks text */}
-      <div className="flex flex-col items-center gap-2 sm:items-start sm:text-left">
-        <div className="grid grid-cols-5 gap-4">
-          <div className="flex flex-row items-center gap-2">
-            <span className="max-w-xs text-2xl font-semibold leading-15 tracking-tight text-black dark:text-zinc-50">
-            Bookmarks
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-              <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-            </svg>
+      <div className="flex flex-col items-center sm:items-start sm:text-left">
+        <div className="grid grid-cols-8 gap-2">
+          <div className="text-center">
+            <div className="flex flex-row items-center gap-2">
+              <span className="max-w-xs text-xl font-medium leading-15 tracking-tight text-black dark:text-zinc-50">
+              Bookmarks
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+            </div>
           </div>
-          <div className="col-span-4 text-center font-medium sm:flex-row">
-            <span className="max-w-xs text-2xl font-semibold leading-15 tracking-tight text-black dark:text-zinc-50">
+          <div className="col-span-7 text-center sm:flex-row">
+            <span className="max-w-xs text-xl font-medium leading-15 tracking-tight text-black dark:text-zinc-50">
               Todos on {format.dateTime(now, {month: "long", day: "numeric"})}
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-8 gap-2">
+        <div className="grid grid-cols-6 gap-4">
           {/* Bookmarks column starts here */}
-          <div className="col-span-2 col-start-1 col-end-3">
+          <div className="col-span-2">
             <ul className="list bg-base-100 rounded-box shadow-md">
               <li className="list-row">
                 <div>
@@ -108,11 +113,11 @@ export default function Home() {
             </ul>
           </div>
           {/* calendar */}
-          <div className="col-start-3 col-end-6">
+          <div className="col-span-2">
             <Calendar></Calendar>
           </div>
           {/* todo list */}
-          <div className="col-span-3">
+          <div className="col-span-2">
             <div className="flex flex-col gap-1">
               <ul className="list bg-base-100 rounded-box shadow-md">
                 <li className="list-row">
