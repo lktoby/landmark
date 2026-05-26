@@ -30,7 +30,7 @@ export async function fetchWeather(city: string): Promise<any> {
     }, [city]);
 
     if (error) return <div>Error fetching weather: {error}</div>;
-        if (!weather) return <div>Loading...</div>;
+    if (!weather) return <div>Loading...</div>;
     
     const icon_url = `https://openweathermap.org/payload/api/media/file/${weather.weather[0].icon}.png`;
 

@@ -2,6 +2,8 @@
 import { useNow, useFormatter } from "next-intl";
 import dynamic from "next/dynamic";
 import Weather from "@/components/weather";
+import TodoItem from "@/components/todo";
+import Bookmark from "@/components/bookmark";
 
 const Calendar = dynamic(()=>import("@/components/calendar"), {ssr:false});
 
@@ -18,7 +20,6 @@ export default function Home() {
         <div>
           <h2 className="text-2xl italic text-center m-3">Fun fact of the day: do you know that pandas love to sleep?</h2>
         </div>
-        {/* TODO: convert this stack of code into its own components */}
         {/* bookmarks text */}
         <div className="flex flex-col justify-evenly gap-3 py-2">
           <div className="flex justify-between gap-2">
@@ -37,83 +38,20 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-stretch gap-4">
-            {/* Bookmarks */}
-            <ul className="list bg-base-100 rounded-box shadow-md w-2xs">
-              <li className="list-row">
-                <div>
-                  <i className="bi bi-play-btn-fill"></i>
-                </div>
-                <span>YouTube</span>
-              </li>
-              <li className="list-row">
-                <div>
-                  <i className="bi bi-reddit"></i>
-                </div>
-                <div>
-                  <span>Reddit</span>
-                </div>
-              </li>
-              <li className="list-row">
-                <div>
-                  <i className="bi bi-github"></i>
-                </div>
-                <div>
-                  <span>GitHub</span>
-                </div>
-              </li>
-              <li className="list-row">
-                <div>
-                  <i className="bi bi-twitter"></i>
-                </div>
-                <div>
-                  <span>Twitter</span>
-                </div>
-              </li>
-              <li className="list-row">
-                <div>
-                  <i className="bi bi-openai"></i>
-                </div>
-                <div>
-                  <span>ChatGPT</span>
-                </div>
-              </li>
+            <ul className="list bg-base-100 rounded-box shadow-md w-2xs text-base">
+              <Bookmark icon="youtube" title="YouTube"></Bookmark>
+              <Bookmark icon="reddit" title="Reddit"></Bookmark>
+              <Bookmark icon="github" title="Github"></Bookmark>
+              <Bookmark icon="twitter" title="Twitter"></Bookmark>
+              <Bookmark icon="openai" title="ChatGPT"></Bookmark>
+              <Bookmark icon="google" title="Google"></Bookmark>
             </ul>
             <Calendar></Calendar>
-            {/* todo list */}
             <div className="flex flex-col gap-1 w-xs">
-              <ul className="list bg-base-100 rounded-box shadow-md">
-                <li className="list-row">
-                  <div>
-                    <div className="text-base font-semibold">some title</div>
-                    <div className="text-xs opacity-60">some description</div>
-                  </div>
-                  <div className="flex justify-end items-center">
-                    <input type="checkbox" className="checkbox" />
-                  </div>
-                </li>
-              </ul>
-              <ul className="list bg-base-100 rounded-box shadow-md">
-                <li className="list-row">
-                  <div>
-                    <div className="text-base font-semibold">some title</div>
-                    <div className="text-xs opacity-60">some description</div>
-                  </div>
-                  <div className="flex justify-end items-center">
-                    <input type="checkbox" className="checkbox" />
-                  </div>
-                </li>
-              </ul>
-              <ul className="list bg-base-100 rounded-box shadow-md">
-                <li className="list-row">
-                  <div>
-                    <div className="text-base font-semibold">some title</div>
-                    <div className="text-xs opacity-60">some description</div>
-                  </div>
-                  <div className="flex justify-end items-center">
-                    <input type="checkbox" className="checkbox" />
-                  </div>
-                </li>
-              </ul>
+              <TodoItem></TodoItem>
+              <TodoItem></TodoItem>
+              <TodoItem></TodoItem>
+              <TodoItem></TodoItem>
               <ul className="list bg-base-100 rounded-box shadow-md">
                 <li className="rounded-box hover:bg-base-200 focus:outline-1">
                   <div>
