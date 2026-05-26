@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
 import { useNow, useFormatter } from "next-intl";
-import Calendar from "@/components/calendar";
+import dynamic from "next/dynamic";
+
+const Calendar = dynamic(()=>import("@/components/calendar"), {ssr:false});
 
 export default function Home() {
   const now = useNow();
