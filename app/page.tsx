@@ -8,7 +8,7 @@ import React from "react";
 
 export default function Home() {
   const format = useFormatter();
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
   return (
     <div className="flex min-h-screen flex-col">
       <div className="flex items-end justify-end m-5">
@@ -25,17 +25,13 @@ export default function Home() {
           <div className="flex justify-between gap-2">
             <div className="self-start">
               <div className="flex flex-row gap-2 px-2">
-                <span className="text-lg font-semibold">
-                  Bookmarks
-                </span>
+                <span className="text-lg font-semibold">Bookmarks</span>
                 <i className="bi bi-pencil-square hover:text-base-content hover:opacity-80 text-xl"></i>
                 {/* TODO: edit bookmark popup */}
               </div>
             </div>
             <div className="pr-65">
-              <span className="text-lg font-semibold">
-                Todos on {format.dateTime(date, { month: "long", day: "numeric" })}
-              </span>
+              <span className="text-lg font-semibold">Todos on {format.dateTime(date, { month: "long", day: "numeric" })}</span>
             </div>
           </div>
           <div className="flex gap-4">
@@ -46,10 +42,12 @@ export default function Home() {
               <Bookmark icon="openai" title="ChatGPT"></Bookmark>
               <Bookmark icon="google" title="Google"></Bookmark>
             </ul>
-            <Calendar mode="single"
+            <Calendar
+              mode="single"
               selected={date}
               onSelect={setDate}
-              className="rounded-lg border bg-base-100 border-base-300 shadow-lg rounded-box"></Calendar>
+              className="rounded-lg border bg-base-100 border-base-300 shadow-lg rounded-box">
+            </Calendar>
             <div className="flex flex-col gap-1 w-xs">
               <TodoItem></TodoItem>
               <TodoItem></TodoItem>
@@ -67,5 +65,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-);
+  );
 }
