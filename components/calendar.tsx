@@ -1,12 +1,13 @@
 "use client";
-import "cally";
+import { Calendar } from "@/components/ui/calendar";
+import React from "react";
 
-function Calendar() {
-    return <calendar-date className="cally bg-base-100 border border-base-300 shadow-lg rounded-box">
-              <svg aria-label="Previous" className="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
-              <svg aria-label="Next" className="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
-              <calendar-month></calendar-month>
-            </calendar-date>
+export default function useCalendar() {
+  
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+  return (<Calendar mode="single"
+  selected={date}
+  onSelect={setDate}
+  className="rounded-lg border bg-base-100 border-base-300 shadow-lg rounded-box"></Calendar>)
 }
-
-export default Calendar;
