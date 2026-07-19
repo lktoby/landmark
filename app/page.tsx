@@ -35,7 +35,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex gap-4">
-            <ul className="list bg-base-100 rounded-box shadow-md w-2xs text-base">
+            <ul className="list bg-base-100 rounded-box shadow-md w-2xs text-base h-64 overflow-y-auto">
               <Bookmark icon="youtube" title="YouTube"></Bookmark>
               <Bookmark icon="reddit" title="Reddit"></Bookmark>
               <Bookmark icon="github" title="Github"></Bookmark>
@@ -48,16 +48,15 @@ export default function Home() {
               onSelect={setDate}
               className="rounded-lg border bg-base-100 border-base-300 shadow-lg rounded-box">
             </Calendar>
-            <div className="flex flex-col gap-1 w-xs">
+            <div className="flex flex-col gap-1 w-sm h-64 overflow-y-auto">
+              <TodoItem></TodoItem>
               <TodoItem></TodoItem>
               <TodoItem></TodoItem>
               <TodoItem></TodoItem>
               {/* TODO: add/edit todo popup menu */}
               <ul className="list bg-base-100 rounded-box shadow-md">
                 <li className="rounded-box hover:bg-base-200 focus:outline-1">
-                  <div>
-                    <span className="text-xs px-40 opacity-60">+</span>
-                  </div>
+                  <span className="text-sm opacity-60 px-45">+</span>
                 </li>
               </ul>
             </div>
