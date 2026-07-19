@@ -31,7 +31,7 @@ export default function Home() {
               </div>
             </div>
             <div className="pr-65">
-              <span className="text-lg font-semibold">Todos on {format.dateTime(date, { month: "long", day: "numeric" })}</span>
+              <span className="text-lg font-semibold">Todos on {format.dateTime(date as Date, { month: "long", day: "numeric" })}</span>
             </div>
           </div>
           <div className="flex gap-4">
