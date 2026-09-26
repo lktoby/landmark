@@ -1,7 +1,7 @@
 "use client"
 
 function TodoItem() {
-    return <ul className="list bg-base-100 rounded-box shadow-md">
+    return <ul className="list w-2xs bg-base-100 rounded-box shadow-md">
                 <li className="list-row hover:bg-base-200">
                     <div>
                         <div className="text-base font-semibold">some title</div>

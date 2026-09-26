@@ -1,6 +1,6 @@
 "use client"
 
-function Bookmark({icon, title}: {icon: string, title: string}) {
+export default function Bookmark({icon, title}: {icon: string, title: string}) {
     const icon_ref = `bi bi-${icon}`;
     return <li className="list-row hover:bg-base-200">
                 <div>
@@ -9,5 +9,3 @@ function Bookmark({icon, title}: {icon: string, title: string}) {
                 <span>{title}</span>
             </li>
 }
-
-export default Bookmark;
